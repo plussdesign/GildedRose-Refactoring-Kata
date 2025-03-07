@@ -1,8 +1,8 @@
-import { Item, GildedRose } from '@/gilded-rose';
+import {GildedRose, Item} from '@/gilded-rose';
 
 /**
  * This unit test uses [Jest Snapshot](https://goo.gl/fbAQLP).
- * 
+ *
  * There are two test cases here with different styles:
  * <li>"foo" is more similar to the unit test from the 'Java' version
  * <li>"thirtyDays" is more similar to the TextTest from the 'Java' version
@@ -40,14 +40,13 @@ describe('Gilded Rose Approval', () => {
   it('should foo', () => {
     const gildedRose = new GildedRose([new Item('foo', 0, 0)]);
     const items = gildedRose.updateQuality();
-  
     expect(items).toMatchSnapshot();
   });
 
   it('should thirtyDays', () => {
     process.argv = ["<node>", "<script", "30"];
     require('../golden-master-text-test.ts');
-       
+
     expect(gameConsoleOutput).toMatchSnapshot();
   });
 
